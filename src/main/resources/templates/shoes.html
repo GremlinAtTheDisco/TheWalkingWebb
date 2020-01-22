@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>The Walking Webb</title>
+    </head>
+    <body>
+        <header>Shoe admin</header>
+                <div align="left">
+            <button onclick="window.location.href = '/admin/main'">Home</button>
+        </div>
+        <h1>Shoes</h1>
+        <div align="center">
+            <button onclick="window.location.href = '/admin/products/create'">Create new shoe</button>
+        </div>
+
+        <div align="center">
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Price</th>
+                        <th>Name</th>
+                        <th>Size</th>
+                        <th>Category</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="shoe : ${listAllShoes}">
+                        <td th:text="${shoe.shoe_id}"> Product ID</td>
+                        <td th:text="${shoe.price}">Price</td>
+                        <td th:text="${shoe.name}">Name</td>
+                        <td th:text="${shoe.size}">Size</td>
+                        <td th:text="${shoe.category}">Category</td>
+                        <td>
+                            <a th:href="@{'products/edit/' + ${shoe.shoe_id}}">Edit</a>
+                            <a th:href="@{'products/delete/' + ${shoe.shoe_id}}">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

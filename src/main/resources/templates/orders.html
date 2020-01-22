@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>The Walking Webb</title>
+    </head>
+    <body>
+        <header>Shoe admin</header>
+        <h1>Orders</h1>
+
+        <div align="center">
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="order : ${listAllOrders}">
+                        <td th:text="${order.order_id}"> Order ID</td>
+                        <td th:text="${order.customer.name}">Date</td>
+                        <td th:text="${order.dateCreated}">Date</td>
+                        <td th:text="${order.statusDelivered}">Status</td>
+                        <td>
+                            <a th:href="@{'/admin/order/viewOrder/' + ${order.order_id}}">View order</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>The Walking Webb</title>
+    </head>
+    <body>
+        <header>The Walking Webb</header>
+        <h1>Checkout</h1>
+        <div align="center">
+            <button onclick="window.location.href = '/main'">Buy more shoes</button>
+        </div>
+
+        <div align="center">
+            <h2>Cart</h2>
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${cart}">
+                        <td th:text="${item.shoe.name}">Name</td>
+                        <td th:text="${item.shoe.price}">Price</td>
+                </tbody>
+            </table>
+            <br>
+                <br>
+                    <br>
+                        <div align="center">
+                            <table border="1" cellpadding="10">
+                                <thead>
+                                    <th>Sum</th>
+                                    <th>Number of items</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td th:text="*{sumOfCart != null}? *{sumOfCart}"></td>
+                                        <td th:text="${itemsInCart}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br>
+                            <br>
+
+                                <div align="center">
+                                    <button onclick="window.location.href = '/checkout/confirmation'">Buy</button>
+                                </div>
+                                </body>
+                                </html>

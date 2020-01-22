@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>The Walking Webb</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h1>Login</h1>
+        <span th:text="${message}">text</span>
+        <form action="#" th:action="@{/login}" th:object="${loginFormBean}" method="post">
+            <p>Username: <input type="text" th:field="*{username}" /></p>
+            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        </form>
+        <form action="#" th:action="@{/login/createCustomer}" th:object="${loginFormBean}" method="get">
+            <button onclick="window.location.href = '/login/createCustomer'">New customer</button>
+        </form>
+    </body>
+</html>

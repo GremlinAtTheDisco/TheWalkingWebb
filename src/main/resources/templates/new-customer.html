@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>The Walking Webb</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <div>
+            <h1>New customer</h1>
+            <br/>
+            <form action="#" th:action="@{/login/createCustomer}" th:object="${customer}" method="post">
+                <table border="0" cellpadding="10">
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type="text" th:field="*{name}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Username</td>
+                        <td><input type="text" th:field="*{username}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="text" th:field="*{email}" /></td>
+                    </tr>                           
+                    <tr>
+                        <td colspan="2"><button type="submit">Save</button> </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>The Walking Webb</title>
+    </head>
+    <body>
+        <header>The Walking Webb</header>
+        <h1>Shoes</h1>
+
+        <div align="left">
+            <h2>Cart</h2>
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="orderline,iter : ${cart}">
+                        <td th:text="${iter.index}">Index</td>
+                        <td th:text="${orderline.shoe.name}">Name</td>
+                        <td th:text="${orderline.shoe.price}">Price</td>
+                        <td>
+                                <a th:href="@{'/cart/delete/' + ${iter.index}}">Remove item</a>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+                <tr>
+                    <td>Sum</td>
+                    <td th:text="${sumOfCart}"></td>
+                </tr>
+                <tr>
+                    <td>Items</td>
+                    <td th:text="${itemsInCart}"></td>
+                </tr>
+                <button onclick="window.location.href = '/checkout'">Checkout</button>
+            </table>
+        </div>
+        <div>
+            <h2>Search for Shoes</h2>
+            <form th:object="${nameBean}" th:action="@{/main/search}" method="post">
+                <input type="text" name="name" id="name" th:value="${name}"/>
+                <input type="submit" value="Search for shoe"/>
+                <table border="1" cellpadding="10">
+                    <tbody>                            
+                        <tr th:each="shoe : ${shoeByName}">
+                            <td th:text="${shoe.price}">Price</td>
+                            <td th:text="${shoe.name}">Name</td>
+                            <td th:text="${shoe.size}">Size</td>
+                            <td th:text="${shoe.category}">Category</td>
+                            <td>
+                                <a th:href="@{'/cart/addShoe/' + ${shoe.shoe_id}}">Add to cart</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+        <div align="center">
+            <h1>Shoes</h1>
+            <table border="1" cellpadding="10">
+                <tbody>
+                    <tr th:each="shoe : ${shoes}">
+                        <td th:text="${shoe.price}">Price</td>
+                        <td th:text="${shoe.name}">Name</td>
+                        <td th:text="${shoe.size}">Size</td>
+                        <td th:text="${shoe.category}">Category</td>
+                        <td>
+                            <a th:href="@{'/cart/addShoe/' + ${shoe.shoe_id}}">Add to cart</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

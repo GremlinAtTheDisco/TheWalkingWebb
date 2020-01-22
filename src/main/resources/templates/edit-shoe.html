@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>The Walking Webb</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <div>
+            <h1>Edit shoe</h1>
+            <br/>
+            <form action="#" th:action="@{/admin/products/create}" th:object="${shoe}" method="post">
+                <table border="0" cellpadding="10">
+                    <tr>
+                        <td>Product ID:</td>
+                        <td>
+                            <input type="text" th:field="*{shoe_id}" readonly="readonly" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Shoe Name:</td>
+                        <td><input type="text" th:field="*{name}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td><input type="text" th:field="*{price}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Size</td>
+                        <td><input type="text" th:field="*{size}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Category</td>
+                        <td><input type="text" th:field="*{category}" /></td>
+                    </tr>                            
+                    <tr>
+                        <td colspan="2"><button type="submit">Edit shoe</button> </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>The Walking Webb</title>
+    </head>
+    <body>
+        <header>Shoe admin</header>
+        <h1>Orders</h1>
+        <div>
+            <button onclick="window.location.href = '/admin/orders'">Back to orders</button>
+        </div>
+
+        <div align="center">
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Orderline ID</th>
+                        <th>Shoe name</th>
+                        <th>Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${orderlines}">
+                        <td th:text="${item.lineId}"> Order ID</td>
+                        <td th:text="${item.shoe.name}">Name</td>
+                        <td th:text="${item.shoe.size}"></td>
+                    </tr>
+                </tbody>
+
+                <table border="1" cellpadding="10">
+                    <thead>
+                        <th>Order ID</th>
+                        <th>Date created</th>
+                        <th>Customer</th>
+                        <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <br>
+                            <br>
+                                </tbody>
+                                <tr th:each="item : ${order}">
+                                    <td th:text="${item.order_id}"></td>
+                                    <td th:text="${item.dateCreated}">Date</td>
+                                    <td th:text="${item.customer.name}">Customer</td>
+                                    <td th:text="${item.statusDelivered}">Status</td>
+                                </tr>
+                                </table>
+                                <br>
+                                    <div align="center">
+                                        <form action="#" th:action="@{'/admin/order/viewOrder/shipOrder/' + ${order.order_id}}" th:object="${order}" method="post">
+                                            <button onclick="window.location.href = '/admin/order/viewOrder/shipOrder'">Ship order</button>
+                                        </form>
+                                        <form action="#" th:action="@{'/admin/order/viewOrder/deleteOrder/' + ${order.order_id}}" th:object="${order}" method="post">
+                                            <button onclick="window.location.href = '/admin/order/viewOrder/deleteOrder/'">Delete</button>
+                                        </form>
+                                    </div>
+                                    </body>
+                                    </html>
